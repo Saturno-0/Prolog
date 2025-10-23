@@ -1,4 +1,30 @@
 
+# Índice General de Actividades
+
+1.  **Python**
+    * [Manejo de preorden y cadenas](#090125-manejo-de-preorden-y-cadenas)
+        * [Conversión a Preorden](#1-conversión-a-preorden)
+        * [Validación de Cadenas de Paréntesis](#2-validación-de-cadenas-de-paréntesis)
+        * [Creación de particiones de números enteros](#3-creacion-de-particiones-de-numeros-enteros)
+
+2.  **Lisp**
+    * [Funciones división y multiplicación](#090325-funciones-division-y-multiplicación)
+        * [División](#1-division)
+        * [Multiplicación](#2-multiplicación)
+    * [Acertijos](#091825-acertijos)
+        * [Acertijo del Puente](#1-puente)
+        * [Acertijo de las Casas](#2-casas)
+    * [Definición de árbol genealógico](#092225-definicion-de-árbol-genealogico-en-lisp)
+    * [Ejercicios con car y cdr](#092625-ejercicios-de-lisp---problemas-con-car-y-cdr)
+    * [Funciones de Área y Volumen](#092925-funciones-de-área-y-volumen-en-lisp)
+
+3.  **Lógica y Prolog**
+    * [Lógica de Primer Orden](#100125-logica-primer-orden)
+    * [Propiedades y Predicados](#021025-propiedades)
+    * [Árbol Genealógico en Prolog](#100825-arbol)
+    * [Ejercicios de Listas en Prolog](#102225-ejercicios-prolog)
+
+---
 
 #  09/01/25 Manejo de preorden y cadenas
 
