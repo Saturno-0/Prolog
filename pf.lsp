@@ -312,32 +312,37 @@
 
 (defparameter *templates*
   (list
-   ;; Saludos
-   (list (list 'hola 'mi 'nombre 'es (list 's)) (list "Hola" 0 "¿" "Cómo" "estás" "tú" "?") (list 4))
-   (list (list 'buendia 'mi 'nombre 'es (list 's)) (list "Buen" "día" 0 "¿" "Cómo" "estás" "tú" "?") (list 4))
-   (list (list 'buenos 'dias 'mi 'nombre 'es (list 's)) (list "Buenos" "días" 0 "¿" "Cómo" "estás" "tú" "?") (list 5))
-   (list (list 'hola (list 's)) (list "Hola" "¿" "Cómo" "estás" "tú" "?") nil)
-   (list (list 'buendia (list 's)) (list "Buen" "día" "¿" "Cómo" "estás" "tú" "?") nil)
-   (list (list 'buenos 'dias (list 's)) (list "Buenos" "días" "¿" "Cómo" "estás" "tú" "?") nil)
-   (list (list 'hi (list 's)) (list "Hola" "¿" "Cómo" "estás" "tú" "?") nil)
-   (list (list 'hello (list 's)) (list "Hola" "¿" "Cómo" "estás" "tú" "?") nil)
+   (list (list 'quien 'es 'el 'padre 'de (list 's)) (list 'flagPadre) (list 5))
+   (list (list 'como 'se 'llama 'el 'papa 'de (list 's)) (list 'flagPadre) (list 6))
+   (list (list 'quien 'es 'papa 'de (list 's)) (list 'flagPadre) (list 4))
+   (list (list 'quien 'es 'la 'madre 'de (list 's)) (list 'flagMadre) (list 5))
+   (list (list 'como 'se 'llama 'la 'mama 'de (list 's)) (list 'flagMadre) (list 6))
+   (list (list 'quien 'es 'mama 'de (list 's)) (list 'flagMadre) (list 4))
+   
+   (list (list 'quien 'es 'hijo 'de (list 's)) (list 'flagHijo) (list 4))
+   (list (list 'cuales 'son 'los 'hijos 'de (list 's)) (list 'flagHijo) (list 5))
+   
+   (list (list 'quien 'es 'hermano 'de (list 's)) (list 'flagHermano) (list 4))
+   (list (list 'quien 'es 'la 'hermana 'de (list 's)) (list 'flagHermano) (list 5))
+   (list (list 'quienes 'son 'los 'hermanos 'de (list 's)) (list 'flagHermano) (list 5))
+   
+   (list (list 'quien 'es 'abuelo 'de (list 's)) (list 'flagAbuelo) (list 4))
+   (list (list 'quien 'es 'el 'abuelo 'de (list 's)) (list 'flagAbuelo) (list 5))
+   
+   (list (list 'quien 'es 'tio 'de (list 's)) (list 'flagTio) (list 4))
+   (list (list 'quien 'es 'sobrino 'de (list 's)) (list 'flagSobrino) (list 4))
+   (list (list 'quien 'es 'primo 'de (list 's)) (list 'flagPrimo) (list 4))
+   
+   (list (list 'quienes 'son 'personajes 'de (list 's)) (list 'flagPersonajeDe) (list 4))
+   
+   ;; Conteos Familia
+   (list (list 'cuantos (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
+   (list (list 'cuantas (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
+   (list (list 'cuantos (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
+   (list (list 'cuantas (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
 
-   (list (list 'yo 'creo 'que 'soy (list 's)) (list "¿" "Por" "qué" "crees" "que" "eres" 0 "?") (list 4))
-   (list (list 'yo (list 's) 'a 'ti) (list "¿" "Por" "qué" "me" 0 "?") (list 1))
-   (list (list 'yo 'soy (list 's)) (list "¿" "Por" "qué" "eres" 0 "?") (list 2))
-
-
-   (list (list 'te 'gustan 'las (list 's) (list 's)) (list 'flagLike) (list 3))
-   (list (list 'tu 'eres (list 's) (list 's)) (list 'flagDo) (list 2))
-   (list (list 'que 'eres 'tu (list 's)) (list 'flagIs) (list 3))
-
-   (list (list 'quien 'es (list 's)) (list 'flagPersonaje) (list 2))
-   (list (list 'conoces 'a (list 's)) (list 'flagPersonaje) (list 2))
-   (list (list 'hablame 'de (list 's)) (list 'flagPersonaje) (list 2))
-   (list (list 'sabes 'quien 'es (list 's)) (list 'flagPersonaje) (list 3))
-   (list (list (list 's) 'es 'adulto) (list 'flagAdulto) (list 0))
-   (list (list 'es (list 's) 'un 'adulto) (list 'flagAdulto) (list 1))
-
+   ;; --- MEDICO EXTENDIDO (Prioridad Alta) ---
+   ;; Gestion Sintomas
    (list (list 'tengo (list 's)) (list 'flagAddSintoma) (list 1))
    (list (list 'siento (list 's)) (list 'flagAddSintoma) (list 1))
    (list (list 'padezco (list 's)) (list 'flagAddSintoma) (list 1))
@@ -347,6 +352,7 @@
    (list (list 'reiniciar 'paciente) (list 'flagClearSintomas) nil)
    (list (list 'nuevo 'paciente) (list 'flagClearSintomas) nil)
 
+   ;; Consultas Medicas
    (list (list 'cuales 'son 'los 'sintomas 'de (list 's)) (list 'flagSintomas) (list 5))
    (list (list 'que 'sintomas 'tiene (list 's)) (list 'flagSintomas) (list 3))
    (list (list 'como 'se 'manifiesta 'la (list 's)) (list 'flagSintomas) (list 4))
@@ -411,27 +417,37 @@
    (list (list 'diagnosticame 'por 'probabilidad) (list 'flagDiagnosticoProbabilidad) nil)
    (list (list 'diagnosticame) (list 'flagDiagnostico) nil)
 
-   ;; Familia
-   (list (list 'quien 'es 'el 'padre 'de (list 's)) (list 'flagPadre) (list 5))
-   (list (list 'como 'se 'llama 'el 'papa 'de (list 's)) (list 'flagPadre) (list 6))
-   (list (list 'quien 'es 'papa 'de (list 's)) (list 'flagPadre) (list 4))
-   (list (list 'quien 'es 'la 'madre 'de (list 's)) (list 'flagMadre) (list 5))
-   (list (list 'como 'se 'llama 'la 'mama 'de (list 's)) (list 'flagMadre) (list 6))
-   (list (list 'quien 'es 'mama 'de (list 's)) (list 'flagMadre) (list 4))
-   (list (list 'quien 'es 'hijo 'de (list 's)) (list 'flagHijo) (list 4))
-   (list (list 'cuales 'son 'los 'hijos 'de (list 's)) (list 'flagHijo) (list 5))
-   (list (list 'quien 'es 'hermano 'de (list 's)) (list 'flagHermano) (list 4))
-   (list (list 'quien 'es 'la 'hermana 'de (list 's)) (list 'flagHermano) (list 5))
-   (list (list 'quienes 'son 'los 'hermanos 'de (list 's)) (list 'flagHermano) (list 5))
-   (list (list 'quien 'es 'abuelo 'de (list 's)) (list 'flagAbuelo) (list 4))
-   (list (list 'quien 'es 'tio 'de (list 's)) (list 'flagTio) (list 4))
-   (list (list 'quien 'es 'sobrino 'de (list 's)) (list 'flagSobrino) (list 4))
-   (list (list 'quien 'es 'primo 'de (list 's)) (list 'flagPrimo) (list 4))
-   (list (list 'quienes 'son 'personajes 'de (list 's)) (list 'flagPersonajeDe) (list 4))
-   (list (list 'cuantos (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
-   (list (list 'cuantas (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
-   (list (list 'cuantos (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
-   (list (list 'cuantas (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
+   ;; --------------------------------------------------------------------------
+   ;; 2. REGLAS GENERALES - DEBEN IR AL FINAL
+   ;; --------------------------------------------------------------------------
+   
+   ;; Saludos
+   (list (list 'hola 'mi 'nombre 'es (list 's)) (list "Hola" 0 "¿" "Como" "estas" "tu" "?") (list 4))
+   (list (list 'buendia 'mi 'nombre 'es (list 's)) (list "Buen" "dia" 0 "¿" "Como" "estas" "tu" "?") (list 4))
+   (list (list 'buenos 'dias 'mi 'nombre 'es (list 's)) (list "Buenos" "dias" 0 "¿" "Como" "estas" "tu" "?") (list 5))
+   (list (list 'hola (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
+   (list (list 'hi (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
+   (list (list 'hello (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
+
+   ;; Personajes / Adultos (Genericos)
+   ;; ESTAS SON LAS QUE CAUSABAN EL ERROR. Al estar al final, solo se activan
+   ;; si no coincidieron con las reglas de familia/medico de arriba.
+   (list (list 'quien 'es (list 's)) (list 'flagPersonaje) (list 2))
+   (list (list 'conoces 'a (list 's)) (list 'flagPersonaje) (list 2))
+   (list (list 'hablame 'de (list 's)) (list 'flagPersonaje) (list 2))
+   (list (list 'sabes 'quien 'es (list 's)) (list 'flagPersonaje) (list 3))
+   (list (list (list 's) 'es 'adulto) (list 'flagAdulto) (list 0))
+   (list (list 'es (list 's) 'un 'adulto) (list 'flagAdulto) (list 1))
+
+   ;; General / Eliza Clásica
+   (list (list 'yo 'creo 'que 'soy (list 's)) (list "¿" "Por" "que" "crees" "que" "eres" 0 "?") (list 4))
+   (list (list 'yo (list 's) 'a 'ti) (list "¿" "Por" "que" "me" 0 "?") (list 1))
+   (list (list 'yo 'soy (list 's)) (list "¿" "Por" "que" "eres" 0 "?") (list 2))
+
+   ;; Flags Generales
+   (list (list 'te 'gustan 'las (list 's) (list 's)) (list 'flagLike) (list 3))
+   (list (list 'tu 'eres (list 's) (list 's)) (list 'flagDo) (list 2))
+   (list (list 'que 'eres 'tu (list 's)) (list 'flagIs) (list 3))
 
    ;; Fallback
    (list nil (list "Please" "explain" "a" "little" "more" ".") nil)))
@@ -449,13 +465,13 @@
     (case flag
       ;; --- Generales ---
       (flagLike (if (find arg-token *likes-db* :test #'string-equal)
-                    (list "Sí" "me" "gusta" arg-token)
+                    (list "Si" "me" "gusta" arg-token)
                     (list "No" "no" "me" "gusta" arg-token)))
       (flagDo   (if (find arg-token *does-db* :test #'string-equal)
-                    (list "Sí" "yo" arg-token "y" "me" "encanta")
-                    (list "No" "yo" "no" arg-token "." "es" "muy" "difícil" "para" "mí")))
+                    (list "Si" "yo" arg-token "y" "me" "encanta")
+                    (list "No" "yo" "no" arg-token "." "es" "muy" "dificil" "para" "mi")))
       (flagIs   (if (find arg-token *is-db* :test #'string-equal)
-                    (list "Sí" "yo" "soy" arg-token)
+                    (list "Si" "yo" "soy" arg-token)
                     (list "No" "yo" "no" "soy" arg-token)))
       
       (flagPersonaje 
@@ -473,12 +489,12 @@
 
       (flagClearSintomas
        (setf *sintomas-usuario* nil)
-       (list "Síntomas" "borrados" "correctamente" "."))
+       (list "Sintomas" "borrados" "correctamente" "."))
 
       (flagSintomas
        (let ((sints (get-sintomas-enfermedad arg-token)))
-         (if sints (append (list "Los" "síntomas" "de" arg-token "son" ":") sints)
-             (list "No" "tengo" "información" "sobre" "los" "síntomas" "de" arg-token))))
+         (if sints (append (list "Los" "sintomas" "de" arg-token "son" ":") sints)
+             (list "No" "tengo" "informacion" "sobre" "los" "sintomas" "de" arg-token))))
 
       (flagTratamiento
        (let ((entry (assoc arg-token *tratamientos-db* :test #'string-equal)))
@@ -503,28 +519,28 @@
 
       (flagDiagnosticoPreventivo
        (let ((prev (get-diagnostico-preventivo)))
-         (if prev (append (list "Atención" ":" "podrías" "estar" "desarrollando" ":") prev)
-             (list "No" "hay" "alertas" "de" "diagnóstico" "preventivo" "por" "ahora"))))
+         (if prev (append (list "Atencion" ":" "podrias" "estar" "desarrollando" ":") prev)
+             (list "No" "hay" "alertas" "de" "diagnostico" "preventivo" "por" "ahora"))))
 
       (flagSimilares
        (if (check-similares arg-token arg-token2)
-           (list "Sí" arg-token "y" arg-token2 "son" "enfermedades" "similares" "porque" "comparten" "síntomas")
+           (list "Si" arg-token "y" arg-token2 "son" "enfermedades" "similares" "porque" "comparten" "sintomas")
            (list "No" arg-token "y" arg-token2 "no" "se" "consideran" "similares")))
 
       (flagContradictorios
        (if (check-contradictorios)
-           (list "Advertencia" ":" "Tienes" "síntomas" "contradictorios" "verificados")
-           (list "Tus" "síntomas" "parecen" "consistentes")))
+           (list "Advertencia" ":" "Tienes" "sintomas" "contradictorios" "verificados")
+           (list "Tus" "sintomas" "parecen" "consistentes")))
 
       (flagArbol
        (let ((diags (get-arbol-diagnostico)))
-         (if diags (append (list "Según" "el" "árbol" "de" "decisión" "tienes" ":") diags)
-             (list "No" "cumples" "con" "todos" "los" "síntomas" "para" "un" "diagnóstico" "exacto"))))
+         (if diags (append (list "Segun" "el" "arbol" "de" "decision" "tienes" ":") diags)
+             (list "No" "cumples" "con" "todos" "los" "sintomas" "para" "un" "diagnostico" "exacto"))))
 
       (flagDiagnosticoExclusivo
        (let ((res (get-diagnostico-exclusivo)))
-         (if res (list "Diagnóstico" "exclusivo" ":" (first res) "debido" "al" "síntoma" "único" (second res))
-             (list "No" "se" "ha" "encontrado" "un" "diagnóstico" "exclusivo" "con" "los" "síntomas" "proporcionados"))))
+         (if res (list "Diagnostico" "exclusivo" ":" (first res) "debido" "al" "sintoma" "unico" (second res))
+             (list "No" "se" "ha" "encontrado" "un" "diagnostico" "exclusivo" "con" "los" "sintomas" "proporcionados"))))
 
       (flagRiesgo
        (let ((diags (get-arbol-diagnostico)))
@@ -544,25 +560,25 @@
              (let* ((entry (assoc arg-token *recomendaciones-db* :test #'string-equal))
                     (rec (cdr (assoc sev (cdr entry) :test #'string-equal))))
                (list "Debido" "a" "severidad" sev ":" rec))
-             (list "No" "puedo" "determinar" "la" "severidad" "para" "darte" "recomendación" "de" arg-token))))
+             (list "No" "puedo" "determinar" "la" "severidad" "para" "darte" "recomendacion" "de" arg-token))))
 
       (flagDiagnosticarYTratar
        (let ((diags (get-arbol-diagnostico)))
          (if diags
              (let* ((d (first diags))
                     (t-text (second (assoc d *tratamientos-db* :test #'string-equal))))
-               (list "Diagnóstico" ":" d "." "Tratamiento" ":" t-text))
+               (list "Diagnostico" ":" d "." "Tratamiento" ":" t-text))
              (list "No" "se" "pudo" "diagnosticar" "y" "tratar" "nada" "concretamente"))))
 
       (flagReporte
-       (format t "--- REPORTE MÉDICO ---~%")
-       (format t "Síntomas confirmados: ~a~%" *sintomas-usuario*)
+       (format t "--- REPORTE MeDICO ---~%")
+       (format t "Sintomas confirmados: ~a~%" *sintomas-usuario*)
        (format t "Enfermedades posibles (Probabilidad):~%")
        (dolist (entry *sintomas-db*)
          (let ((prob (get-probabilidad (car entry))))
            (when (> prob 0)
              (format t "  - ~a: ~,2f%~%" (car entry) prob))))
-       (format t "Diagnóstico Final:~%")
+       (format t "Diagnostico Final:~%")
        (let ((diags (get-arbol-diagnostico)))
          (if diags
              (dolist (d diags)
@@ -571,7 +587,7 @@
                  (when sev (format t "    Severidad: ~a~%" sev)))
                (let ((tr (second (assoc d *tratamientos-db* :test #'string-equal))))
                  (when tr (format t "    Tratamiento: ~a~%" tr))))
-             (format t "  No se cumplen condiciones para un diagnóstico definitivo.~%")))
+             (format t "  No se cumplen condiciones para un diagnostico definitivo.~%")))
        (format t "----------------------~%")
        (list "Reporte" "generado" "en" "consola" "."))
 
@@ -583,15 +599,15 @@
                (setf best-prob prob)
                (setf best-enf (car entry)))))
          (if (and best-enf (> best-prob 0))
-             (list "El" "diagnóstico" "más" "probable" "es" best-enf "con" "un" (format nil "~,2f%" best-prob) "de" "probabilidad" ".")
-             (list "No" "presento" "suficientes" "síntomas" "para" "un" "diagnóstico" "."))))
+             (list "El" "diagnostico" "mas" "probable" "es" best-enf "con" "un" (format nil "~,2f%" best-prob) "de" "probabilidad" ".")
+             (list "No" "presento" "suficientes" "sintomas" "para" "un" "diagnostico" "."))))
 
       (flagDiagnostico
-       (format t "Para realizar el diagnóstico, responderé con preguntas.~%")
+       (format t "Para realizar el diagnostico, respondere con preguntas.~%")
        (dolist (entry *sintomas-db*)
          (dolist (s (cdr entry))
            (unless (find s *sintomas-usuario* :test #'string-equal)
-             (format t "¿Tienes ~a? " s)
+             (format t "Tienes ~a? " s)
              (finish-output)
              (let ((resp (read-line)))
                (when (or (string-equal resp "si") (string-equal resp "s") (string-equal resp "yes"))
@@ -600,35 +616,35 @@
 
       (flagPadre (let ((parents (get-parents arg-token)))
                    (if parents (append (list "El" "padre" "de" arg-token "es") parents)
-                       (list "No" "sé" "quién" "es" "el" "padre" "de" arg-token))))
+                       (list "No" "se" "quien" "es" "el" "padre" "de" arg-token))))
       (flagMadre (let ((parents (get-parents arg-token)))
                    (if parents (append (list "La" "madre" "de" arg-token "es") (intersection parents (mapcar #'car *madre-db*) :test #'string-equal))
-                       (list "No" "sé" "quién" "es" "la" "madre" "de" arg-token))))
+                       (list "No" "se" "quien" "es" "la" "madre" "de" arg-token))))
       (flagHijo (let ((children (get-children arg-token)))
                   (if children (append (list "Los" "hijos" "de" arg-token "son") children)
-                      (list "No" "encontré" "hijos" "de" arg-token))))
+                      (list "No" "encontre" "hijos" "de" arg-token))))
       (flagHermano (let ((siblings (get-siblings arg-token)))
                      (if siblings (append (list "Los" "hermanos" "de" arg-token "son") siblings)
-                         (list "No" "encontré" "hermanos" "de" arg-token))))
+                         (list "No" "encontre" "hermanos" "de" arg-token))))
       (flagAbuelo (let ((gps (get-grandparents arg-token)))
                     (if gps (append (list "Los" "abuelos" "de" arg-token "son") gps)
-                        (list "No" "encontré" "abuelos" "de" arg-token))))
+                        (list "No" "encontre" "abuelos" "de" arg-token))))
       (flagTio (let ((uncles (get-uncles arg-token)))
                  (if uncles (append (list "Los" "tios" "de" arg-token "son") uncles)
-                     (list "No" "encontré" "tios" "de" arg-token))))
+                     (list "No" "encontre" "tios" "de" arg-token))))
       (flagSobrino (let ((neps (get-nephews arg-token)))
                      (if neps (append (list "Los" "sobrinos" "de" arg-token "son") neps)
-                         (list "No" "encontré" "sobrinos" "de" arg-token))))
+                         (list "No" "encontre" "sobrinos" "de" arg-token))))
       (flagPrimo (let ((cousins (get-cousins arg-token)))
                    (if cousins (append (list "Los" "primos" "de" arg-token "son") cousins)
-                       (list "No" "encontré" "primos" "de" arg-token))))
+                       (list "No" "encontre" "primos" "de" arg-token))))
       
       (flagPersonajeDe (cond
                          ((string-equal arg-token "familia")
                           (append (list "Los" "miembros" "de" "la" "familia" "son" ":") *grupo-familia*))
                          ((string-equal arg-token "starwars")
                           (append (list "Los" "personajes" "de" arg-token "son" ":") *grupo-starwars*))
-                         (t (list "No" "tengo" "información" "sobre" "el" "grupo" arg-token))))
+                         (t (list "No" "tengo" "informacion" "sobre" "el" "grupo" arg-token))))
 
       (flagContar (cond
                     ((string-equal arg-token "mujeres")
@@ -696,7 +712,7 @@
 
 (defun eliza-loop ()
   (format t "Hola, mi nombre es Eliza V2 (Common Lisp).~%")
-  (format t "Por favor, ingresa tu consulta usando solo minúsculas y sin punto al final.~%")
+  (format t "Por favor, ingresa tu consulta usando solo minusculas y sin punto al final.~%")
   (loop
     (format t "~%> ")
     (let ((line (read-line *query-io* nil nil)))
@@ -705,7 +721,7 @@
         (cond
           ((or (string= (first tokens) "adios")
                (string= (first tokens) "bye"))
-           (format t "Adiós. Espero haberte ayudado.~%")
+           (format t "Adios. Espero haberte ayudado.~%")
            (return))
           (t (respond-to tokens)))))))
 
