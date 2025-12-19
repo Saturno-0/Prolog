@@ -263,6 +263,38 @@
 ;;; ============================================================================
 ;;; 4. Logica Genealogica (Reglas de parentesco)
 ;;; ============================================================================
+
+(defun get-person-roles (person)
+  (let ((roles '()))
+    ;; Check Padre/Madre
+    (when (get-children person)
+      (push (if (find person *mujeres-db* :test #'string-equal) "madre" "padre") roles))
+    
+    ;; Check Hijo/Hija
+    (when (get-parents person)
+      (push (if (find person *mujeres-db* :test #'string-equal) "hija" "hijo") roles))
+    
+    ;; Check Hermano/Hermana
+    (when (get-siblings person)
+      (push (if (find person *mujeres-db* :test #'string-equal) "hermana" "hermano") roles))
+      
+    ;; Check Abuelo/Abuela (Si es padre de alguien que es padre)
+    (let ((children (get-children person)))
+       (when (some (lambda (c) (get-children c)) children)
+          (push (if (find person *mujeres-db* :test #'string-equal) "abuela" "abuelo") roles)))
+
+    ;; Check Tio/Tia (Si tiene hermanos que tienen hijos)
+    (let ((siblings (get-siblings person)))
+       (when (some (lambda (s) (get-children s)) siblings)
+          (push (if (find person *mujeres-db* :test #'string-equal) "tia" "tio") roles)))
+
+    ;; Check Primo/Prima (Si tiene tios que tienen hijos)
+    (when (get-cousins person)
+       (push (if (find person *mujeres-db* :test #'string-equal) "prima" "primo") roles))
+
+    ;; Retornar lista sin duplicados
+    (remove-duplicates roles :test #'string-equal)))
+
 (defun get-parents (child)
   (let ((parents '()))
     (dolist (pair *padre-db*) (if (string-equal (second pair) child) (push (first pair) parents)))
@@ -614,7 +646,12 @@
                (when (or (string-equal resp "si") (string-equal resp "s") (string-equal resp "yes"))
                  (pushnew s *sintomas-usuario* :test #'string-equal))))))
        (handle-flag 'flagDiagnosticoProbabilidad nil nil))
-
+       
+      (flagRoles
+       (let ((roles (get-person-roles arg-token)))
+         (if roles
+             (append (list arg-token "es" ":") roles)
+             (list "No" "tengo" "registros" "de" "roles" "para" arg-token))))
       (flagPadre (let ((parents (get-parents arg-token)))
                    (if parents (append (list "El" "padre" "de" arg-token "es") parents)
                        (list "No" "se" "quien" "es" "el" "padre" "de" arg-token))))
