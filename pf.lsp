@@ -312,145 +312,146 @@
 
 (defparameter *templates*
   (list
-   (list (list 'quien 'es 'el 'padre 'de (list 's)) (list 'flagPadre) (list 5))
-   (list (list 'como 'se 'llama 'el 'papa 'de (list 's)) (list 'flagPadre) (list 6))
-   (list (list 'quien 'es 'papa 'de (list 's)) (list 'flagPadre) (list 4))
-   (list (list 'quien 'es 'la 'madre 'de (list 's)) (list 'flagMadre) (list 5))
-   (list (list 'como 'se 'llama 'la 'mama 'de (list 's)) (list 'flagMadre) (list 6))
-   (list (list 'quien 'es 'mama 'de (list 's)) (list 'flagMadre) (list 4))
-   
-   (list (list 'quien 'es 'hijo 'de (list 's)) (list 'flagHijo) (list 4))
-   (list (list 'cuales 'son 'los 'hijos 'de (list 's)) (list 'flagHijo) (list 5))
-   
-   (list (list 'quien 'es 'hermano 'de (list 's)) (list 'flagHermano) (list 4))
-   (list (list 'quien 'es 'la 'hermana 'de (list 's)) (list 'flagHermano) (list 5))
-   (list (list 'quienes 'son 'los 'hermanos 'de (list 's)) (list 'flagHermano) (list 5))
-   
-   (list (list 'quien 'es 'abuelo 'de (list 's)) (list 'flagAbuelo) (list 4))
-   (list (list 'quien 'es 'el 'abuelo 'de (list 's)) (list 'flagAbuelo) (list 5))
-   
-   (list (list 'quien 'es 'tio 'de (list 's)) (list 'flagTio) (list 4))
-   (list (list 'quien 'es 'sobrino 'de (list 's)) (list 'flagSobrino) (list 4))
-   (list (list 'quien 'es 'primo 'de (list 's)) (list 'flagPrimo) (list 4))
-   
-   (list (list 'quienes 'son 'personajes 'de (list 's)) (list 'flagPersonajeDe) (list 4))
-   
-   ;; Conteos Familia
-   (list (list 'cuantos (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
-   (list (list 'cuantas (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
-   (list (list 'cuantos (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
-   (list (list 'cuantas (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
+    (list (list 'que 'es (list 's)) (list 'flagRoles) (list 2))
+    (list (list 'quien 'es 'el 'padre 'de (list 's)) (list 'flagPadre) (list 5))
+    (list (list 'como 'se 'llama 'el 'papa 'de (list 's)) (list 'flagPadre) (list 6))
+    (list (list 'quien 'es 'papa 'de (list 's)) (list 'flagPadre) (list 4))
+    (list (list 'quien 'es 'la 'madre 'de (list 's)) (list 'flagMadre) (list 5))
+    (list (list 'como 'se 'llama 'la 'mama 'de (list 's)) (list 'flagMadre) (list 6))
+    (list (list 'quien 'es 'mama 'de (list 's)) (list 'flagMadre) (list 4))
+  
+    (list (list 'quien 'es 'hijo 'de (list 's)) (list 'flagHijo) (list 4))
+    (list (list 'cuales 'son 'los 'hijos 'de (list 's)) (list 'flagHijo) (list 5))
+  
+    (list (list 'quien 'es 'hermano 'de (list 's)) (list 'flagHermano) (list 4))
+    (list (list 'quien 'es 'la 'hermana 'de (list 's)) (list 'flagHermano) (list 5))
+    (list (list 'quienes 'son 'los 'hermanos 'de (list 's)) (list 'flagHermano) (list 5))
 
-   ;; --- MEDICO EXTENDIDO (Prioridad Alta) ---
-   ;; Gestion Sintomas
-   (list (list 'tengo (list 's)) (list 'flagAddSintoma) (list 1))
-   (list (list 'siento (list 's)) (list 'flagAddSintoma) (list 1))
-   (list (list 'padezco (list 's)) (list 'flagAddSintoma) (list 1))
-   (list (list 'presento (list 's)) (list 'flagAddSintoma) (list 1))
-   (list (list 'borrar 'sintomas) (list 'flagClearSintomas) nil)
-   (list (list 'limpiar 'sintomas) (list 'flagClearSintomas) nil)
-   (list (list 'reiniciar 'paciente) (list 'flagClearSintomas) nil)
-   (list (list 'nuevo 'paciente) (list 'flagClearSintomas) nil)
+    (list (list 'quien 'es 'abuelo 'de (list 's)) (list 'flagAbuelo) (list 4))
+    (list (list 'quien 'es 'el 'abuelo 'de (list 's)) (list 'flagAbuelo) (list 5))
 
-   ;; Consultas Medicas
-   (list (list 'cuales 'son 'los 'sintomas 'de (list 's)) (list 'flagSintomas) (list 5))
-   (list (list 'que 'sintomas 'tiene (list 's)) (list 'flagSintomas) (list 3))
-   (list (list 'como 'se 'manifiesta 'la (list 's)) (list 'flagSintomas) (list 4))
-   (list (list 'que 'se 'siente 'con (list 's)) (list 'flagSintomas) (list 4))
-   (list (list 'como 'saber 'si 'tengo (list 's)) (list 'flagSintomas) (list 4))
-   (list (list 'signos 'de (list 's)) (list 'flagSintomas) (list 2))
+    (list (list 'quien 'es 'tio 'de (list 's)) (list 'flagTio) (list 4))
+    (list (list 'quien 'es 'sobrino 'de (list 's)) (list 'flagSobrino) (list 4))
+    (list (list 'quien 'es 'primo 'de (list 's)) (list 'flagPrimo) (list 4))
 
-   (list (list 'cual 'es 'el 'tratamiento 'de (list 's)) (list 'flagTratamiento) (list 5))
-   (list (list 'como 'se 'cura 'la (list 's)) (list 'flagTratamiento) (list 4))
-   (list (list 'que 'puedo 'tomar 'para (list 's)) (list 'flagTratamiento) (list 4))
-   (list (list 'remedio 'para (list 's)) (list 'flagTratamiento) (list 2))
-   (list (list 'cura 'para (list 's)) (list 'flagTratamiento) (list 2))
+    (list (list 'quienes 'son 'personajes 'de (list 's)) (list 'flagPersonajeDe) (list 4))
 
-   (list (list 'es 'grave 'la (list 's)) (list 'flagGravedad) (list 3))
-   (list (list 'que 'gravedad 'tiene 'la (list 's)) (list 'flagGravedad) (list 4))
-   (list (list 'que 'gravedad 'tiene 'el (list 's)) (list 'flagGravedad) (list 4))
-   (list (list 'es 'grave 'el (list 's)) (list 'flagGravedad) (list 3))
+    ;; Conteos Familia
+    (list (list 'cuantos (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
+    (list (list 'cuantas (list 's) 'hay 'en 'la 'familia) (list 'flagContar) (list 1))
+    (list (list 'cuantos (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
+    (list (list 'cuantas (list 's) 'hay 'en 'star 'wars) (list 'flagContarStarWars) (list 1))
 
-   (list (list 'que 'me 'recomiendas 'para (list 's)) (list 'flagRecomendacion) (list 4))
-   (list (list 'que 'hago 'si 'tengo (list 's)) (list 'flagRecomendacion) (list 4))
-   (list (list 'dame 'una 'recomendacion 'para (list 's)) (list 'flagRecomendacion) (list 5))
+    ;; --- MEDICO EXTENDIDO (Prioridad Alta) ---
+    ;; Gestion Sintomas
+    (list (list 'tengo (list 's)) (list 'flagAddSintoma) (list 1))
+    (list (list 'siento (list 's)) (list 'flagAddSintoma) (list 1))
+    (list (list 'padezco (list 's)) (list 'flagAddSintoma) (list 1))
+    (list (list 'presento (list 's)) (list 'flagAddSintoma) (list 1))
+    (list (list 'borrar 'sintomas) (list 'flagClearSintomas) nil)
+    (list (list 'limpiar 'sintomas) (list 'flagClearSintomas) nil)
+    (list (list 'reiniciar 'paciente) (list 'flagClearSintomas) nil)
+    (list (list 'nuevo 'paciente) (list 'flagClearSintomas) nil)
 
-   (list (list 'probabilidad 'de (list 's)) (list 'flagCalcularProbabilidad) (list 2))
-   (list (list 'que 'probabilidad 'tengo 'de (list 's)) (list 'flagCalcularProbabilidad) (list 4))
-   (list (list 'posibilidad 'de (list 's)) (list 'flagCalcularProbabilidad) (list 2))
+    ;; Consultas Medicas
+    (list (list 'cuales 'son 'los 'sintomas 'de (list 's)) (list 'flagSintomas) (list 5))
+    (list (list 'que 'sintomas 'tiene (list 's)) (list 'flagSintomas) (list 3))
+    (list (list 'como 'se 'manifiesta 'la (list 's)) (list 'flagSintomas) (list 4))
+    (list (list 'que 'se 'siente 'con (list 's)) (list 'flagSintomas) (list 4))
+    (list (list 'como 'saber 'si 'tengo (list 's)) (list 'flagSintomas) (list 4))
+    (list (list 'signos 'de (list 's)) (list 'flagSintomas) (list 2))
 
-   (list (list 'diagnostico 'preventivo) (list 'flagDiagnosticoPreventivo) nil)
-   (list (list 'alerta 'preventiva) (list 'flagDiagnosticoPreventivo) nil)
-   (list (list 'que 'podria 'tener) (list 'flagDiagnosticoPreventivo) nil)
+    (list (list 'cual 'es 'el 'tratamiento 'de (list 's)) (list 'flagTratamiento) (list 5))
+    (list (list 'como 'se 'cura 'la (list 's)) (list 'flagTratamiento) (list 4))
+    (list (list 'que 'puedo 'tomar 'para (list 's)) (list 'flagTratamiento) (list 4))
+    (list (list 'remedio 'para (list 's)) (list 'flagTratamiento) (list 2))
+    (list (list 'cura 'para (list 's)) (list 'flagTratamiento) (list 2))
 
-   (list (list 'es (list 's) 'similar 'a (list 's)) (list 'flagSimilares) (list 1 4))
-   (list (list 'se 'parecen 'la (list 's) 'y 'la (list 's)) (list 'flagSimilares) (list 3 6))
-   (list (list 'relacion 'entre (list 's) 'y (list 's)) (list 'flagSimilares) (list 2 4))
+    (list (list 'es 'grave 'la (list 's)) (list 'flagGravedad) (list 3))
+    (list (list 'que 'gravedad 'tiene 'la (list 's)) (list 'flagGravedad) (list 4))
+    (list (list 'que 'gravedad 'tiene 'el (list 's)) (list 'flagGravedad) (list 4))
+    (list (list 'es 'grave 'el (list 's)) (list 'flagGravedad) (list 3))
 
-   (list (list 'tengo 'sintomas 'contradictorios) (list 'flagContradictorios) nil)
-   (list (list 'hay 'contradiccion) (list 'flagContradictorios) nil)
-   (list (list 'mis 'sintomas 'tienen 'sentido) (list 'flagContradictorios) nil)
+    (list (list 'que 'me 'recomiendas 'para (list 's)) (list 'flagRecomendacion) (list 4))
+    (list (list 'que 'hago 'si 'tengo (list 's)) (list 'flagRecomendacion) (list 4))
+    (list (list 'dame 'una 'recomendacion 'para (list 's)) (list 'flagRecomendacion) (list 5))
 
-   (list (list 'diagnostico 'exacto) (list 'flagArbol) nil)
-   (list (list 'diagnostico 'definitivo) (list 'flagArbol) nil)
-   (list (list 'que 'tengo 'exactamente) (list 'flagArbol) nil)
+    (list (list 'probabilidad 'de (list 's)) (list 'flagCalcularProbabilidad) (list 2))
+    (list (list 'que 'probabilidad 'tengo 'de (list 's)) (list 'flagCalcularProbabilidad) (list 4))
+    (list (list 'posibilidad 'de (list 's)) (list 'flagCalcularProbabilidad) (list 2))
 
-   (list (list 'diagnostico 'exclusivo) (list 'flagDiagnosticoExclusivo) nil)
-   (list (list 'tengo 'algun 'sintoma 'unico) (list 'flagDiagnosticoExclusivo) nil)
+    (list (list 'diagnostico 'preventivo) (list 'flagDiagnosticoPreventivo) nil)
+    (list (list 'alerta 'preventiva) (list 'flagDiagnosticoPreventivo) nil)
+    (list (list 'que 'podria 'tener) (list 'flagDiagnosticoPreventivo) nil)
 
-   (list (list 'riesgo 'de (list 's)) (list 'flagRiesgo) (list 2))
-   (list (list 'es 'peligrosa 'la (list 's)) (list 'flagRiesgo) (list 3))
+    (list (list 'es (list 's) 'similar 'a (list 's)) (list 'flagSimilares) (list 1 4))
+    (list (list 'se 'parecen 'la (list 's) 'y 'la (list 's)) (list 'flagSimilares) (list 3 6))
+    (list (list 'relacion 'entre (list 's) 'y (list 's)) (list 'flagSimilares) (list 2 4))
 
-   (list (list 'tratamiento 'combinado) (list 'flagTratamientoCombinado) nil)
-   (list (list 'todos 'los 'tratamientos) (list 'flagTratamientoCombinado) nil)
+    (list (list 'tengo 'sintomas 'contradictorios) (list 'flagContradictorios) nil)
+    (list (list 'hay 'contradiccion) (list 'flagContradictorios) nil)
+    (list (list 'mis 'sintomas 'tienen 'sentido) (list 'flagContradictorios) nil)
 
-   (list (list 'recomendacion 'severidad (list 's)) (list 'flagRecomendacionSeveridad) (list 2))
-   (list (list 'que 'tan 'grave 'es 'mi (list 's)) (list 'flagRecomendacionSeveridad) (list 5))
+    (list (list 'diagnostico 'exacto) (list 'flagArbol) nil)
+    (list (list 'diagnostico 'definitivo) (list 'flagArbol) nil)
+    (list (list 'que 'tengo 'exactamente) (list 'flagArbol) nil)
 
-   (list (list 'diagnosticar 'y 'tratar) (list 'flagDiagnosticarYTratar) nil)
-   (list (list 'dame 'el 'remedio) (list 'flagDiagnosticarYTratar) nil)
+    (list (list 'diagnostico 'exclusivo) (list 'flagDiagnosticoExclusivo) nil)
+    (list (list 'tengo 'algun 'sintoma 'unico) (list 'flagDiagnosticoExclusivo) nil)
 
-   (list (list 'reporte 'completo) (list 'flagReporte) nil)
-   (list (list 'resumen) (list 'flagReporte) nil)
-   (list (list 'informe) (list 'flagReporte) nil)
+    (list (list 'riesgo 'de (list 's)) (list 'flagRiesgo) (list 2))
+    (list (list 'es 'peligrosa 'la (list 's)) (list 'flagRiesgo) (list 3))
 
-   (list (list 'diagnosticame 'por 'probabilidad) (list 'flagDiagnosticoProbabilidad) nil)
-   (list (list 'diagnosticame) (list 'flagDiagnostico) nil)
+    (list (list 'tratamiento 'combinado) (list 'flagTratamientoCombinado) nil)
+    (list (list 'todos 'los 'tratamientos) (list 'flagTratamientoCombinado) nil)
 
-   ;; --------------------------------------------------------------------------
-   ;; 2. REGLAS GENERALES - DEBEN IR AL FINAL
-   ;; --------------------------------------------------------------------------
-   
-   ;; Saludos
-   (list (list 'hola 'mi 'nombre 'es (list 's)) (list "Hola" 0 "¿" "Como" "estas" "tu" "?") (list 4))
-   (list (list 'buendia 'mi 'nombre 'es (list 's)) (list "Buen" "dia" 0 "¿" "Como" "estas" "tu" "?") (list 4))
-   (list (list 'buenos 'dias 'mi 'nombre 'es (list 's)) (list "Buenos" "dias" 0 "¿" "Como" "estas" "tu" "?") (list 5))
-   (list (list 'hola (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
-   (list (list 'hi (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
-   (list (list 'hello (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
+    (list (list 'recomendacion 'severidad (list 's)) (list 'flagRecomendacionSeveridad) (list 2))
+    (list (list 'que 'tan 'grave 'es 'mi (list 's)) (list 'flagRecomendacionSeveridad) (list 5))
 
-   ;; Personajes / Adultos (Genericos)
-   ;; ESTAS SON LAS QUE CAUSABAN EL ERROR. Al estar al final, solo se activan
-   ;; si no coincidieron con las reglas de familia/medico de arriba.
-   (list (list 'quien 'es (list 's)) (list 'flagPersonaje) (list 2))
-   (list (list 'conoces 'a (list 's)) (list 'flagPersonaje) (list 2))
-   (list (list 'hablame 'de (list 's)) (list 'flagPersonaje) (list 2))
-   (list (list 'sabes 'quien 'es (list 's)) (list 'flagPersonaje) (list 3))
-   (list (list (list 's) 'es 'adulto) (list 'flagAdulto) (list 0))
-   (list (list 'es (list 's) 'un 'adulto) (list 'flagAdulto) (list 1))
+    (list (list 'diagnosticar 'y 'tratar) (list 'flagDiagnosticarYTratar) nil)
+    (list (list 'dame 'el 'remedio) (list 'flagDiagnosticarYTratar) nil)
 
-   ;; General / Eliza Clásica
-   (list (list 'yo 'creo 'que 'soy (list 's)) (list "¿" "Por" "que" "crees" "que" "eres" 0 "?") (list 4))
-   (list (list 'yo (list 's) 'a 'ti) (list "¿" "Por" "que" "me" 0 "?") (list 1))
-   (list (list 'yo 'soy (list 's)) (list "¿" "Por" "que" "eres" 0 "?") (list 2))
+    (list (list 'reporte 'completo) (list 'flagReporte) nil)
+    (list (list 'resumen) (list 'flagReporte) nil)
+    (list (list 'informe) (list 'flagReporte) nil)
 
-   ;; Flags Generales
-   (list (list 'te 'gustan 'las (list 's) (list 's)) (list 'flagLike) (list 3))
-   (list (list 'tu 'eres (list 's) (list 's)) (list 'flagDo) (list 2))
-   (list (list 'que 'eres 'tu (list 's)) (list 'flagIs) (list 3))
+    (list (list 'diagnosticame 'por 'probabilidad) (list 'flagDiagnosticoProbabilidad) nil)
+    (list (list 'diagnosticame) (list 'flagDiagnostico) nil)
 
-   ;; Fallback
-   (list nil (list "Please" "explain" "a" "little" "more" ".") nil)))
+    ;; --------------------------------------------------------------------------
+    ;; 2. REGLAS GENERALES - DEBEN IR AL FINAL
+    ;; --------------------------------------------------------------------------
+
+    ;; Saludos
+    (list (list 'hola 'mi 'nombre 'es (list 's)) (list "Hola" 0 "¿" "Como" "estas" "tu" "?") (list 4))
+    (list (list 'buendia 'mi 'nombre 'es (list 's)) (list "Buen" "dia" 0 "¿" "Como" "estas" "tu" "?") (list 4))
+    (list (list 'buenos 'dias 'mi 'nombre 'es (list 's)) (list "Buenos" "dias" 0 "¿" "Como" "estas" "tu" "?") (list 5))
+    (list (list 'hola (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
+    (list (list 'hi (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
+    (list (list 'hello (list 's)) (list "Hola" "¿" "Como" "estas" "tu" "?") nil)
+
+    ;; Personajes / Adultos (Genericos)
+    ;; ESTAS SON LAS QUE CAUSABAN EL ERROR. Al estar al final, solo se activan
+    ;; si no coincidieron con las reglas de familia/medico de arriba.
+    (list (list 'quien 'es (list 's)) (list 'flagPersonaje) (list 2))
+    (list (list 'conoces 'a (list 's)) (list 'flagPersonaje) (list 2))
+    (list (list 'hablame 'de (list 's)) (list 'flagPersonaje) (list 2))
+    (list (list 'sabes 'quien 'es (list 's)) (list 'flagPersonaje) (list 3))
+    (list (list (list 's) 'es 'adulto) (list 'flagAdulto) (list 0))
+    (list (list 'es (list 's) 'un 'adulto) (list 'flagAdulto) (list 1)) 
+
+    ;; General / Eliza Clásica
+    (list (list 'yo 'creo 'que 'soy (list 's)) (list "¿" "Por" "que" "crees" "que" "eres" 0 "?") (list 4))
+    (list (list 'yo (list 's) 'a 'ti) (list "¿" "Por" "que" "me" 0 "?") (list 1))
+    (list (list 'yo 'soy (list 's)) (list "¿" "Por" "que" "eres" 0 "?") (list 2))
+
+    ;; Flags Generales
+    (list (list 'te 'gustan 'las (list 's) (list 's)) (list 'flagLike) (list 3))
+    (list (list 'tu 'eres (list 's) (list 's)) (list 'flagDo) (list 2))
+    (list (list 'que 'eres 'tu (list 's)) (list 'flagIs) (list 3))
+
+    ;; Fallback
+    (list nil (list "Please" "explain" "a" "little" "more" ".") nil)))
 
 (defun find-matching-template (input)
   (find-if (lambda (tpl) (match-template (first tpl) input)) *templates*))
@@ -476,8 +477,8 @@
       
       (flagPersonaje 
        (let ((entry (assoc arg-token *starwars-desc-db* :test #'string-equal)))
-         (if entry (append (list arg-token) (cdr entry))
-             (list "Lo" "siento" "no" "conozco" "a" arg-token))))
+          (if entry (append (list arg-token) (cdr entry))
+              (list "Lo" "siento" "no" "conozco" "a" arg-token))))
 
       (flagAdulto (if (find arg-token *adultos-db* :test #'string-equal)
                       (list "Si" arg-token "es" "un" "adulto")
@@ -485,33 +486,33 @@
 
       (flagAddSintoma
        (pushnew arg-token *sintomas-usuario* :test #'string-equal)
-       (list "Entendido" "," "he" "registrado" "que" "tienes" arg-token))
+        (list "Entendido" "," "he" "registrado" "que" "tienes" arg-token))
 
       (flagClearSintomas
        (setf *sintomas-usuario* nil)
-       (list "Sintomas" "borrados" "correctamente" "."))
+        (list "Sintomas" "borrados" "correctamente" "."))
 
       (flagSintomas
-       (let ((sints (get-sintomas-enfermedad arg-token)))
-         (if sints (append (list "Los" "sintomas" "de" arg-token "son" ":") sints)
-             (list "No" "tengo" "informacion" "sobre" "los" "sintomas" "de" arg-token))))
+        (let ((sints (get-sintomas-enfermedad arg-token)))
+          (if sints (append (list "Los" "sintomas" "de" arg-token "son" ":") sints)
+              (list "No" "tengo" "informacion" "sobre" "los" "sintomas" "de" arg-token))))
 
       (flagTratamiento
        (let ((entry (assoc arg-token *tratamientos-db* :test #'string-equal)))
-         (if entry (list "El" "tratamiento" "para" arg-token "es" ":" (second entry))
-             (list "No" "conozco" "el" "tratamiento" "para" arg-token))))
+          (if entry (list "El" "tratamiento" "para" arg-token "es" ":" (second entry))
+              (list "No" "conozco" "el" "tratamiento" "para" arg-token))))
 
       (flagRecomendacion
        (let ((entry (assoc arg-token *recomendaciones-db* :test #'string-equal)))
-         (if entry
-             (let ((recs (mapcar #'cdr (cdr entry))))
-               (append (list "Recomendaciones" "para" arg-token ":") recs))
-             (list "No" "tengo" "recomendaciones" "para" arg-token))))
+          (if entry
+              (let ((recs (mapcar #'cdr (cdr entry))))
+                (append (list "Recomendaciones" "para" arg-token ":") recs))
+              (list "No" "tengo" "recomendaciones" "para" arg-token))))
 
       (flagGravedad
        (let ((entry (assoc arg-token *gravedad-db* :test #'string-equal)))
-         (if entry (list "La" "gravedad" "de" "la" arg-token "es" ":" (second entry))
-             (list "No" "tengo" "informacion" "sobre" "la" "gravedad" "de" arg-token))))
+          (if entry (list "La" "gravedad" "de" "la" arg-token "es" ":" (second entry))
+              (list "No" "tengo" "informacion" "sobre" "la" "gravedad" "de" arg-token))))
 
       (flagCalcularProbabilidad
        (let ((prob (get-probabilidad arg-token)))

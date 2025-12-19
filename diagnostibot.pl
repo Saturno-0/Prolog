@@ -144,6 +144,8 @@ template([que, me, recomiendas, para, s(_), '?'], [flagRecomendacion], [5]).
 template([que, hago, si, tengo, s(_), '?'], [flagRecomendacion], [4]).
 template([dame, una, recomendacion, para, s(_), '?'], [flagRecomendacion], [5]).
 
+template([que, es, s(_), '?'], [flagRoles], [2]).
+
 template([quien, es, el, padre, de, s(_), '?'], [flagPadre], [5]).
 template([como, se, llama, el, papa, de, s(_), '?'], [flagPadre], [6]).
 template([quien, es, papa, de, s(_), '?'], [flagPadre], [4]).
@@ -373,6 +375,12 @@ replace0([I|_], Input, _, Resp, R) :-
     nth0(0, Resp, X),
     X == flagMadre,
     elizaMadre(Atom, R).
+
+replace0([I|_], Input, _, Resp, R) :-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagRoles,
+    elizaRoles(Atom, R).
 
 replace0([I|_], Input, _, Resp, R) :-
     nth0(I, Input, Atom),
@@ -731,8 +739,35 @@ elizaReporte(R) :-
     writeln('----------------------'),
     R = ['Reporte', generado, en, consola, '.'].
 
-% --- Modulo Genealogico (Copiado de elizav1.pl) ---
-% (Se mantiene igual que en la versión 1)
+% --- Modulo Genealogico  ---
+
+elizaRoles(Persona, R) :-
+    findall(Rol, tiene_rol(Persona, Rol), Roles),
+    sort(Roles, RolesUnicos), % Elimina duplicados
+    RolesUnicos \= [],
+    atomic_list_concat(RolesUnicos, ', ', Texto),
+    R = [Persona, cumple, los, roles, de, ':', Texto].
+
+elizaRoles(Persona, [Persona, no, tiene, roles, familiares, registrados, o, no, existe]).
+
+tiene_rol(P, 'padre') :- hombre(P), padre(P, _).
+tiene_rol(M, 'madre') :- mujer(M), madre(M, _).
+
+tiene_rol(H, 'hijo') :- hombre(H), (padre(_, H) ; madre(_, H)).
+tiene_rol(H, 'hija') :- mujer(H), (padre(_, H) ; madre(_, H)).
+
+tiene_rol(H, 'hermano') :- hombre(H), hermano(H, _).
+tiene_rol(H, 'hermana') :- mujer(H), hermano(H, _).
+
+tiene_rol(A, 'abuelo') :- hombre(A), abuelo(A, _).
+tiene_rol(A, 'abuela') :- mujer(A), abuela(A, _).
+
+tiene_rol(T, 'tio') :- hombre(T), tio(T, _).
+tiene_rol(T, 'tia') :- mujer(T), tio(T, _).
+
+tiene_rol(P, 'primo') :- hombre(P), primo(P, _).
+tiene_rol(P, 'prima') :- mujer(P), primo(P, _).
+
 elizaPadre(Hijo, R) :-
     padre(Padre, Hijo),
     R = ['El', padre, de, Hijo, es, Padre].

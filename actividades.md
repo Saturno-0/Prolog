@@ -1414,3 +1414,209 @@ intercalar([H1|T1], [H2|T2], [H1,H2|R]) :-
 ?- intercalar([1,3,5], [2,4,6], R).
 R = [1, 2, 3, 4, 5, 6].
 ```
+
+# 10/29/25 Eliza
+
+template([hola, mi, nombre, es, s(), '.'], ['Hola', 0, '¿cómo estás?', '¿en qué puedo ayudarte?'], [1]). template([buenos, dias], ['Buenos días', 0, '¿cómo te sientes hoy?'], [2]). template([hola, yo, soy, s(), '.'], ['Hola', 0, 'yo soy Eliza'], [3]). template([como, estas], ['Estoy bien, gracias por preguntar.', '¿y tú?'], [4]). template([estoy, bien], ['Me alegra saber eso.', '¿Qué te hace sentir bien hoy?'], [5]). template([estoy, triste], ['Lamento oír eso.', '¿Quieres contarme por qué te sientes así?'], [6]). template([me, siento, solo], ['¿Por qué crees que te sientes solo?'], [7]). template([me, gusta, la, musica], ['¡A mí también me gusta la música!', '¿Qué tipo de música te gusta?'], [8]). template([me, gusta, leer], ['Leer es una gran actividad.', '¿Qué libro lees ahora?'], [9]). template([no, tengo, amigos], ['Eso suena difícil.', '¿Te gustaría hacer nuevos amigos?'], [10]). template([tengo, hambre], ['Quizás deberías comer algo.', '¿Qué te gustaría comer?'], [11]). template([estoy, cansado], ['Parece que necesitas descansar.', '¿Dormiste bien anoche?'], [12]). template([odio, mi, trabajo], ['Parece que no estás contento con tu trabajo.', '¿Qué es lo que no te gusta de él?'], [13]). template([tengo, miedo], ['¿A qué le tienes miedo?'], [14]). template([no, se], ['Está bien no saberlo.', 'A veces solo necesitamos pensar un poco.'], [15]). template([quiero, ser, feliz], ['Todos queremos eso.', '¿Qué cosas te hacen feliz?'], [16]). template([me, siento, perdido], ['A veces todos nos sentimos así.', '¿Qué te hace sentir perdido?'], [17]). template([gracias], ['De nada, estoy aquí para escucharte.'], [18]). template([adios], ['Adiós', 0, 'cuídate mucho.'], [19]). template([buenas, noches], ['Buenas noches', 0, 'que descanses.'], [20]).
+
+
+# 10/30/25
+
+% ---------- Hechos monarios ----------
+likes(musica).
+likes(rnb).
+likes(rap).
+likes(jazz).
+likes(pop).
+likes(pulque).
+likes(pizza).
+likes(viajar).
+likes(programar).
+likes(aprender).
+
+% ---------- Templates básicos ----------
+template([hola, mi, nombre, es, s(_), '.'], ['Hola', 0, '¿cómo estás?', '¿en qué puedo ayudarte?'], [1]).
+template([buenos, dias], ['Buenos días', 0, '¿cómo te sientes hoy?'], [2]).
+template([hola, yo, soy, s(_), '.'], ['Hola', 0, 'yo soy Eliza.'], [3]).
+template([como, estas], ['Estoy bien, gracias por preguntar.', '¿y tú?'], [4]).
+template([estoy, bien], ['Qué bueno saberlo.', '¿Qué te hace sentir bien hoy?'], [5]).
+template([estoy, triste], ['Lamento oír eso.', '¿Quieres contarme por qué te sientes así?'], [6]).
+template([me, siento, solo], ['¿Por qué crees que te sientes solo?'], [7]).
+template([no, tengo, amigos], ['Eso suena difícil.', '¿Te gustaría hacer nuevos amigos?'], [8]).
+template([estoy, cansado], ['Parece que necesitas descansar.', '¿Dormiste bien anoche?'], [9]).
+template([adios], ['Adiós', 0, 'cuídate mucho.'], [10]).
+
+% ---------- Preguntas sobre gustos ----------
+template([te, gusta, s(X), '?'], ['Sí, me gusta', X, 'también.'], [11]) :-
+    likes(X).
+
+template([te, gusta, s(X), '?'], ['No estoy segura si me gusta', X, ', pero suena interesante.'], [12]).
+
+template([que, te, gusta], ['Me gusta', X, '.'], [13]) :-
+    random_like(X).
+
+template([cual, es, tu, musica, favorita], ['Me gusta escuchar', X, '.'], [14]) :-
+    random_music(X).
+
+template([que, tipo, de, musica, te, gusta], ['Disfruto escuchar', X, '.'], [15]) :-
+    random_music(X).
+
+template([te, gusta, comer, s(X), '?'], ['Sí, me encanta comer', X, '.'], [16]) :-
+    likes(X).
+
+template([te, gusta, programar, '?'], ['Claro, programar es una de mis cosas favoritas.'], [17]).
+
+template([te, gusta, viajar, '?'], ['Sí, viajar es genial, me gustaría conocer muchos lugares.'], [18]).
+
+template([que, te, gusta, hacer], ['Me gusta', X, '.'], [19]) :-
+    random_like(X).
+
+template([gracias], ['De nada, estoy aquí para escucharte.'], [20]).
+
+% ---------- Predicados auxiliares ----------
+
+% Escoge un gusto al azar
+random_like(X) :-
+    findall(Y, likes(Y), List),
+    random_member(X, List).
+
+% Escoge un tipo de música entre los gustos musicales
+random_music(X) :-
+    member(X, [rock, pop, jazz, clasica]).
+
+% ---------- Motor principal ----------
+
+eliza(Input, Response) :-
+    template(Input, Response, _), !.
+
+eliza(_, ['No entiendo lo que dices, pero cuéntame más.']).
+
+% ---------- Bucle interactivo ----------
+conversar :-
+    write('Tú: '),
+    read(Input),
+    ( Input == [adios]
+      -> write('Eliza: Adiós, cuídate mucho.'), nl
+      ;  eliza(Input, Response),
+         write('Eliza: '), write(Response), nl,
+         conversar
+    ).
+
+# 11/24/25 Examen Prolog
+
+
+% acertijo.pl
+% Archivo fuente: /mnt/data/index 1.txt
+
+:- use_module(library(clpfd)).
+:- set_prolog_flag(verbose, silent).
+
+solve(Solutions) :-
+    Personas = [ana, bruno, carlos, diana, elisa],
+
+    % Dominios (indices para cada atributo)
+    Especialidades = [Genetica, Microbiologia, Bioquimica, Inmunologia, Neurociencia],
+    Horas        = [H1,H2,H3,H4,H5],    % índices representarán 6,8,10,12,14 (ver map)
+    Bebidas      = [Cafe,Te,Jugo,Mate,Agua],
+    Equipos      = [Microscopio,Centrifuga,PCR,Espectrometro,Incubadora],
+    Paises       = [Mexico,Chile,España,Argentina,Peru],
+
+    % En Prolog usaremos permutaciones de listas concretas para asignar a personas.
+    EspecialidadesList = [genetica, microbiologia, bioquimica, inmunologia, neurociencia],
+    HorasList = [6,8,10,12,14],
+    BebidasList = [cafe, te, jugo, mate, agua],
+    EquiposList = [microscopio, centrifuga, pcr, espectrometro, incubadora],
+    PaisesList = [mexico, chile, espana, argentina, peru],
+
+    permutation(EspecialidadesList, [E_ana, E_bruno, E_carlos, E_diana, E_elisa]),
+    permutation(HorasList,       [T_ana, T_bruno, T_carlos, T_diana, T_elisa]),
+    permutation(BebidasList,     [B_ana, B_bruno, B_carlos, B_diana, B_elisa]),
+    permutation(EquiposList,     [Q_ana, Q_bruno, Q_carlos, Q_diana, Q_elisa]),
+    permutation(PaisesList,      [P_ana, P_bruno, P_carlos, P_diana, P_elisa]),
+
+    % Helpers to refer by person:
+    E = [E_ana, E_bruno, E_carlos, E_diana, E_elisa],
+    T = [T_ana, T_bruno, T_carlos, T_diana, T_elisa],
+    B = [B_ana, B_bruno, B_carlos, B_diana, B_elisa],
+    Q = [Q_ana, Q_bruno, Q_carlos, Q_diana, Q_elisa],
+    P = [P_ana, P_bruno, P_carlos, P_diana, P_elisa],
+
+    % Traducciones o relaciones directas implementadas como condiciones:
+
+    % 1. El investigador de Genética llega a las 6am.
+    nth0(IndexG, E, genetica), nth0(IndexG, T, 6),
+
+    % 2. Ana no trabaja ni en Genética ni en Neurociencia.
+    E_ana \= genetica, E_ana \= neurociencia,
+
+    % 3. La persona que usa la Centrífuga bebe Té.
+    nth0(Ic, Q, centrifuga), nth0(Ic, B, te),
+
+    % 4. La investigadora de Perú llega a las 10am.
+    nth0(Ip, P, peru), nth0(Ip, T, 10),
+
+    % 5. Carlos usa el Espectrómetro.
+    Q_carlos = espectrometro,
+
+    % 6. Quien bebe Café llega dos horas antes que quien bebe Jugo.
+    nth0(Icafe, B, cafe), nth0(Ijugo, B, jugo),
+    nth0(Icafe, T, Tcafe), nth0(Ijugo, T, Tjugo), Tjugo is Tcafe + 2,
+
+    % 7. La persona que trabaja en Inmunología usa PCR.
+    nth0(Iinm, E, inmunologia), nth0(Iinm, Q, pcr),
+
+    % 8. La especialista en Bioquímica es de Chile.
+    nth0(Ibio, E, bioquimica), nth0(Ibio, P, chile),
+
+    % 9. La Incubadora es utilizada por alguien que llega a las 14pm.
+    nth0(Iinc, Q, incubadora), nth0(Iinc, T, 14),
+
+    %10. El investigador de Argentina bebe Mate.
+    nth0(Iarg, P, argentina), nth0(Iarg, B, mate),
+
+    %11. Elisa no bebe Té ni Café.
+    B_elisa \= te, B_elisa \= cafe,
+
+    %12. Diana trabaja en Microbiología.
+    E_diana = microbiologia,
+
+    %13. El que llega a las 8am usa el Microscopio.
+    nth0(I8, T, 8), nth0(I8, Q, microscopio),
+
+    %14. Bruno no es de México.
+    P_bruno \= mexico,
+
+    %15. La persona de España trabaja en Neurociencia.
+    nth0(Iesp, P, espana), nth0(Iesp, E, neurociencia),
+
+    %16. El usuario del equipo PCR llega después que el especialista en Microbiología.
+    nth0(Ipcr, Q, pcr), nth0(Imicro, E, microbiologia),
+    nth0(Ipcr, T, Tpcr), nth0(Imicro, T, Tmicro), Tpcr > Tmicro,
+
+    %17. El de México usa el equipo que NO es Microscopio ni Incubadora.
+    nth0(Imex, P, mexico), nth0(Imex, Q, Qmex), Qmex \= microscopio, Qmex \= incubadora,
+
+    %18. La persona que bebe Agua no usa ni PCR ni Espectrómetro.
+    nth0(Iagua, B, agua), nth0(Iagua, Q, Qagua), Qagua \= pcr, Qagua \= espectrometro,
+
+    %19. El especialista en Neurociencia llega después de la persona que bebe Jugo.
+    nth0(In, E, neurociencia), nth0(Ij, B, jugo), nth0(In, T, Tn), nth0(Ij, T, Tj), Tn > Tj,
+
+    %20. El de Perú NO bebe Agua.
+    nth0(Iperu, P, peru), nth0(Iperu, B, Bperu), Bperu \= agua,
+
+    % Preparar la estructura legible con nombres
+    Solutions = solution([
+        person(ana, T_ana, E_ana, B_ana, Q_ana, P_ana),
+        person(bruno, T_bruno, E_bruno, B_bruno, Q_bruno, P_bruno),
+        person(carlos, T_carlos, E_carlos, B_carlos, Q_carlos, P_carlos),
+        person(diana, T_diana, E_diana, B_diana, Q_diana, P_diana),
+        person(elisa, T_elisa, E_elisa, B_elisa, Q_elisa, P_elisa)
+    ]).
+
+% Helper to run and print all solutions
+run :-
+    findall(S, solve(S), Ss),
+    length(Ss, Count),
+    format("Se encontraron ~w solución(es).~n~n", [Count]),
+    forall(member(Sol, Ss), ( portray_clause(Sol), nl )).
