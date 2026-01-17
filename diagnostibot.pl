@@ -18,13 +18,10 @@ eliza(Input) :-
 eliza(Input) :-
     template(Stim, Resp, IndStim),
     match(Stim, Input),
-    % si he llegado aquí es que he hallado el template correcto:
     replace0(IndStim, Input, 0, Resp, R),
-    
-    % --- NUEVO CÓDIGO DE FORMATO ---
-    atomic_list_concat(R, ' ', Salida), % Une la lista con espacios
-    writeln(Salida),                    % Imprime el texto limpio
-    % -------------------------------
+
+    atomic_list_concat(R, ' ', Salida), 
+    writeln(Salida),                    
     
     readln(Input1),
     eliza(Input1),
